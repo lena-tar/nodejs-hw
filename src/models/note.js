@@ -13,7 +13,6 @@ const notesSchema = new Schema(
       type: String,
       enum: TAGS,
       default: 'Todo',
-      index: true,
     },
 
     title: {
@@ -28,5 +27,7 @@ const notesSchema = new Schema(
     versionKey: false,
   },
 );
+
+notesSchema.index({ tag: 1 });
 
 export const Note = model('Note', notesSchema);
